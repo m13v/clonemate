@@ -1,10 +1,11 @@
 "use client";
 
-import { useEdgeRuntime, AssistantRuntimeProvider, WebSpeechSynthesisAdapter } from "@assistant-ui/react";
+import { useEdgeRuntime, AssistantRuntimeProvider } from "@assistant-ui/react";
 import { Thread } from "@assistant-ui/react";
 import { makeMarkdownText } from "@assistant-ui/react-markdown";
 import { SearchToolUI } from "../tools/SearchToolUI";
 import { searchFunction } from "@/lib/search";
+import { DeepgramSpeechSynthesisAdapter } from "@/lib/DeepgramSpeechSynthesisAdapter";
 
 const MarkdownText = makeMarkdownText();
 
@@ -13,7 +14,7 @@ export function MyAssistant() {
     api: "/api/chat",
     tools: [searchFunction],
     adapters: {
-      speech: new WebSpeechSynthesisAdapter(),
+      speech: new DeepgramSpeechSynthesisAdapter(process.env.NEXT_PUBLIC_DEEPGRAM_API_KEY),
     },
     onError: (error) => {
       console.error("runtime error:", error);
