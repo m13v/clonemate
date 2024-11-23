@@ -6,6 +6,7 @@ First, add your OpenAI API key to `.env.local` file:
 
 ```
 OPENAI_API_KEY=sk-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+NEXT_PUBLIC_DEEPGRAM_API_KEY=
 ```
 
 Then, run the development server:
